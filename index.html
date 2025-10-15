@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resco Trial Information - Intro Page</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="../../ClientGlobalContext.js.aspx"></script>
+    <script>
+      function navigateToWebResource(webresource) {
+        var pageInput = {
+          pageType: "webresource",
+          webresourceName: webresource,
+        };
+        Xrm.Navigation.navigateTo(pageInput);
+      }
+
+      function navigateToEntityList(entityName) {
+        var pageInput = {
+          pageType: "entitylist",
+          entityName: entityName,
+        };
+        Xrm.Navigation.navigateTo(pageInput);
+      }
+
+      function displayCurrentUser() {
+            try {
+                // Get global context
+                var globalContext = GetGlobalContext();
+                // Get user settings
+                var userSettings = globalContext.userSettings;
+                // Extract user information
+                var userId = userSettings.userId;
+                var userName = userSettings.userName;
+                // Display the username
+                document.getElementById("userDisplay").innerHTML = "Hello, " + userName;
+            } catch (error) {
+                console.error("Error getting user context:", error);
+                document.getElementById("userDisplay").innerHTML = "Unable to load user information";
+            }
+        }
+    </script>
+</head>
+<body>
+    <main>
+        <section class="hero-section">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 id="userDisplay">Hello, --- ---.</h1>
+                    <h3>Welcome to Resco Inspections</h3>
+                    <p>Equip your frontline teams with a robust digital solution to simplify data collection and reporting. Handle inspections and audits effortlessly, even in remote locations, and create comprehensive reports on the spot.</p>
+                </div>
+                <div class="hero-image">
+                    <img src="images/intro_image.png" alt="Resco Inspections for Field Technicians and Sales">
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <h2>Introduction to Resco Inspections</h2>
+                <div class="card-grid">
+                    <div class="card video-card" data-video-id="ButT3at_QiA">
+                        <h3>Benefits</h3>
+                        <p>Unlock the potential of Resco Inspections to streamline your workflow and enhance productivity.</p>
+                        <span class="learn-more">Play Video →</span>
+                    </div>
+                    <div class="card video-card" data-video-id="q00vmbmIQm0">
+                        <h3>Top 5 Features</h3>
+                        <p>Zoznam piatich kľúčových vlastností, ktoré zvýšia efektivitu a zjednodušia prácu s dátami.</p>
+                        <span class="learn-more">Play Video →</span>
+                    </div>
+                    <div class="card video-card" data-video-id="LIdNqZzQEK0">
+                        <h3>Basic overview…</h3>
+                        <p>Základný prehľad o tom, ako Resco Inspections funguje a čo môžete očakávať.</p>
+                        <span class="learn-more">Play Video →</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section white">
+            <div class="container">
+                <h2>Essential Resources & Academy</h2>
+                <div class="card-grid">
+                    <a href="https://academy.resco.net/course/view.php?id=14" target="_blank" class="card academy-card">
+                        <h3>Boost your Resco expertise with Resco Academy.</h3>
+                        <p>Discover lessons, hands-on tutorials, and certifications that help you grow.</p>
+                        <span class="button">Sign up and start learning today</span>
+                    </a>
+                    <a href="https://docs.resco.net/wiki/Questionnaire_Player_Gen_2" target="_blank" class="card">
+                        <h3>Questionnaire Player Gen 2</h3>
+                        <p>Discover the next generation of the Player — redesigned with a modern user interface, improved performance, and built-in accessibility.</p>
+                        <span class="learn-more">Learn more →</span>
+                    </a>
+                    <a href="https://docs.resco.net/wiki/Questionnaire_Designer_examples" target="_blank" class="card">
+                        <h3>Questionnaire Designer examples</h3>
+                        <p>Unlock the potential of Resco Inspections to streamline your workflow and enhance productivity. Experience real-time data capture, improved accuracy, and seamless integration with your existing systems.</p>
+                        <span class="learn-more">Learn more →</span>
+                    </a>
+                    <a href="https://docs.resco.net/wiki/Best_practices_for_deploying_Inspections" target="_blank" class="card">
+                        <h3>Best practices for deploying Inspections</h3>
+                        <p>Deploying Inspections in large projects without considering performance can degrade user experience. Learn potential issues and configure questionnaires properly to avoid risks.</p>
+                        <span class="learn-more">Learn more →</span>
+                    </a>
+                    <a href="https://docs.resco.net/wiki/Mobile_reports_for_Resco_Inspections" target="_blank" class="card">
+                        <h3>Create professional inspection reports instantly on your device</h3>
+                        <p>Resco Inspections lets you create and share polished reports without paperwork, using built-in templates or fully customized designs via the Report Designer.</p>
+                        <span class="learn-more">Learn more →</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" style="display: none;">
+            <div class="container">
+                <h2>Quick Start: Setting Up Your Workflow</h2>
+                <aside class="note-aside">
+                    💡 Táto časť zatiaľ nie je pripravená – budeme na nej pracovať. Už som sa dohodol s Marekom Rodákom, ktorý by sa na nej rád podieľal spolu s tímom konzultantov.
+                </aside>
+                <ol class="workflow-list">
+                    <li>Introduction to Designer</li>
+                    <li>Integration to Power Pages</li>
+                    <li>Integration to Power Apps</li>
+                    <li>Integration to Mobile CRM</li>
+                    <li>Introduction to Player</li>
+                    <li>Data processing</li>
+                </ol>
+            </div>
+        </section>
+
+        <section class="section highlight-section">
+            <div class="container demo">
+                <div class="demo-image"><img src="images/powerpage_image.png" alt="Demo: Questionnnaire on Power Page "></div>
+                <div class="demo-text">
+                    <h3>Accelerate Power Pages Testing with Our Questionnaire Demo Solution</h3>
+                    <p>Jump‑start your Power Pages project with our lightweight Dynamics demo solution, fully dependent on the Resco Suite.</p>
+                    <p>It delivers the Questionnaire component instantly, ready for testing — reducing setup time while still requiring your Power Pages developer for final integration.</p>
+                    <div>
+                    <a href="https://woodford.resco.net/dynamics/QuestionnairePlayerPowerPageDemo_1_0_0_0.zip" class="button">↓ &nbsp;Download the solution files</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <h2>Product list</h2>
+                <div class="card-grid">
+                    <a href="#" class="card" onclick="navigateToWebResource('resco_MobileCRM/Surveys/index.html')">
+                        <h3>Questionnaire Designer</h3>
+                        <p>A flexible tool for creating smart digital forms and surveys. Design questionnaires with conditional logic, custom layouts, and dynamic data to streamline data collection in the field.</p>
+                        <span class="learn-more">Open →</span>
+                    </a>
+                    <a href="#" class="card" onclick="navigateToWebResource('resco_MobileCRM/MobileReports/index.html')">
+                        <h3>Report Designer</h3>
+                        <p>A powerful tool for building custom PDF or Word reports. Easily transform collected data into professional, branded documents with full control over layout, style, and logic.</p>
+                        <span class="learn-more">Open →</span>
+                    </a>
+                    <a href="#" class="card" onclick="navigateToEntityList('resco_questionnaire')">
+                        <h3>Templates</h3>
+                        <p>A list of published questionnaires ready for use. Open any template to start collecting data instantly in the app.</p>
+                        <span class="learn-more">Open →</span>
+                    </a>
+                    <a href="#" class="card" onclick="navigateToEntityList('resco_questionnaireanswer')">
+                        <h3>Answers</h3>
+                        <p>A list of questionnaires that are completed or in progress. Easily review, edit, or continue filling out saved responses.</p>
+                        <span class="learn-more">Open →</span>
+                    </a>
+                    <a href="#" class="card" onclick="navigateToWebResource('resco_MobileCRM/Surveys/index.html?data=results%3D1')">
+                        <h3>Result Viewer</h3>
+                        <p>Displays all completed and in-progress questionnaires. You can filter results by various criteria, export them to .csv, and view individual forms or aggregated summaries over a selected period.</p>
+                        <span class="learn-more">Open →</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modálne okno pre video -->
+    <div id="videoModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <div class="video-container">
+                <!-- Tu bude vložené YouTube video pomocou JavaScriptu -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js" defer></script>
+
+
+</body>
+</html>
