@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resco Trial Information - Intro Page</title>
     <link rel="stylesheet" href="style.css">
-    <script type="text/javascript" src="../../ClientGlobalContext.js.aspx"></script>
+    <script type="text/javascript" src="/WebResources/ClientGlobalContext.js.aspx"></script>
     <script>
       function navigateToWebResource(webresource) {
         var pageInput = {
@@ -23,22 +23,20 @@
         Xrm.Navigation.navigateTo(pageInput);
       }
 
-      function displayCurrentUser() {
-            try {
-                // Get global context
-                var globalContext = GetGlobalContext();
-                // Get user settings
-                var userSettings = globalContext.userSettings;
-                // Extract user information
-                var userId = userSettings.userId;
-                var userName = userSettings.userName;
-                // Display the username
-                document.getElementById("userDisplay").innerHTML = "Hello, " + userName;
-            } catch (error) {
-                console.error("Error getting user context:", error);
-                document.getElementById("userDisplay").innerHTML = "Unable to load user information";
+        var context = GetGlobalContext();
+        var userId = context.userSettings.userId.replace("{", "").replace("}", "");
+
+        Xrm.WebApi.retrieveRecord("systemuser", userId, "?$select=fullname").then(
+            function (result) {
+                console.log("User name:", result.fullname);
+                // napríklad zobraz do HTML elementu
+                document.getElementById("userName").innerText = "Hello, " + result.fullname;
+            },
+            function (error) {
+                console.log(error.message);
             }
-        }
+        );
+
     </script>
 </head>
 <body>
@@ -46,7 +44,7 @@
         <section class="hero-section">
             <div class="container">
                 <div class="hero-content">
-                    <h1 id="userDisplay">Hello, John Smith.</h1>
+                    <h1 id="userName">Hello, John Smith.</h1>
                     <h3>Welcome to Resco Inspections</h3>
                     <p>Equip your frontline teams with a robust digital solution to simplify data collection and reporting. Handle inspections and audits effortlessly, even in remote locations, and create comprehensive reports on the spot.</p>
                 </div>
@@ -66,13 +64,13 @@
                         <span class="learn-more">Play Video →</span>
                     </div>
                     <div class="card video-card" data-video-id="q00vmbmIQm0">
-                        <h3>Top 5 Features</h3>
-                        <p>Five key features that enhance efficiency and simplify data handling in our form player, including search, error highlighting, and TOC display.</p>
+                        <h3>How it works in 3 steps</h3>
+                        <p>Collecting data on the go is tough. Resco Inspections makes it easier for you and your mobile team.</p>
                         <span class="learn-more">Play Video →</span>
                     </div>
-                    <div class="card video-card" data-video-id="LIdNqZzQEK0">
-                        <h3>Basic overview</h3>
-                        <p>Learn how Resco Inspections works and how to set up and use the solution effectively.</p>
+                    <div class="card video-card" data-video-id="iWFS5MAadWo">
+                        <h3>Empowering frontline teams</h3>
+                        <p>See how Resco and partners turn cloud innovation into real-world solutions, empowering frontline teams with mobility, AI, and no-code tools.</p>
                         <span class="learn-more">Play Video →</span>
                     </div>
                 </div>

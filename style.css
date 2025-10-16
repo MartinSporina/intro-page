@@ -39,6 +39,7 @@ h1, h2, h3 {
     color: var(--heading-color);
     line-height: 1.4;
     margin-top: 0;
+    max-width: 600px;
 }
 
 h1 { font-size: 1.6em; font-weight: 600; }
@@ -100,6 +101,7 @@ a:hover {
     text-align: right;
     display: flex;
     align-items: flex-end;
+    max-width: 580px;
 }
 
 .hero-image img {
