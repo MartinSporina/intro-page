@@ -257,8 +257,21 @@ a:hover {
     color: var(--secondary-color);
 }
 .demo-text p:last-of-type {
-    margin-bottom: 24px;
+    margin-bottom: 8px;
 }
+
+.demo-text ul {
+    margin: 0;
+    padding-left: 24px;
+    list-style: disc;
+}
+
+.demo-text li {
+    margin-bottom: 2px;
+    color: var(--secondary-color);
+    line-height: 1.6;
+}
+
 .demo-text .button {
     background-color: var(--primary-color);
     color: #fff;
