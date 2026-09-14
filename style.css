@@ -1,6 +1,7 @@
 /* Základné nastavenia */
 :root {
-    --primary-color: #007bff; /* Modrá pre akcenty */
+    --primary-color: #0066cc; /* Modrá pre akcenty */
+    --primary-light-color: #0C7DED; /* Modrá pre akcenty */
     --secondary-color: #6c757d; /* Šedá */
     --text-color: #333;
     --heading-color: #212529;
@@ -273,7 +274,7 @@ a:hover {
 }
 
 .demo-text .button {
-    background-color: var(--primary-color);
+    background-color: var(--primary-light-color);
     color: #fff;
     padding: 12px 25px;
     border-radius: 5px;
